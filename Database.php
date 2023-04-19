@@ -1,14 +1,36 @@
 <?php
 
+define('ENV', "test");
+
 class DataBase 
 {
-    public static function getConnection()
+
+    private $db_name;
+    private $db_user;
+    private $db_pass;
+    private $db_host;
+    private $pdo;
+
+    public function __construct($db_name = 'PokemonCrud', $db_user = 'root', $db_pass = '', $db_host = 'localhost' )
     {
-        $db = 'mysql:host=localhost; dbname=PokmonCrud';
-        $userDB = 'root';
-        $passDB = '';
+        $this->db_name = $db_name;
+        $this->db_user = $db_user;
+        $this->db_pass = $db_pass;
+        $this->db_host = $db_host;
+
+    }
+    
+    private function getPDO(){
+        if($this->pdo === null){
+            $pdo = new PDO('mysql:host=localhost; dbname=PokemonCrud', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
+        }
+
+
+        //TRY / CATCH Copié; voIR SI CA FONCTIONNE
         try {
-            $pdo = new PDO($db, $userDB, $passDB);
+            $pdo = new PDO('mysql:host=localhost; dbname=PokemonCrud', 'root', '');
         }
         catch (PDOException $pe){
             if(ENV === 'test'){
@@ -19,13 +41,31 @@ class DataBase
         }
         return $pdo;
     }
-    public static function bind(string $sql, array $data):void
-    {
-        $stmt = (Database::getConnection())->prepare($sql);
-        foreach($data as $key=>$param){
-            $stmt->bindValue($key, $param, PDO::PARAM_STR);
-        }
-        $stmt -> execute();
+
+    public function query($statement){
+        $requete = $this->getPDO()->query($statement);
+        $datas = $requete ->fetchAll(PDO::FETCH_OBJ);
+        return $datas;
+
     }
+
+
+
+
+    // public static function getConnection()
+    // {
+    //     $db = 'mysql:host=localhost; dbname=PokmonCrud';
+    //     $userDB = 'root';
+    //     $passDB = '';
+    // }
+    
+    // public static function bind(string $sql, array $data):void
+    // {
+    //     $stmt = (Database::getConnection())->prepare($sql);
+    //     foreach($data as $key=>$param){
+    //         $stmt->bindValue($key, $param, PDO::PARAM_STR);
+    //     }
+    //     $stmt -> execute();
+    // }
 
 }
