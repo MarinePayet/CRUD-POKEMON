@@ -1,8 +1,8 @@
 <?php
-require 'DataBase.php';
-include 'Pokemon.php';
-include 'header.php';
-include 'footer.php';
+
+require 'MODELS/Database.php';
+include 'MODELS/Pokemon.php';
+include 'PARTS/header.php' ;
 
 // $db = new Database('PokmonCrud');
 // $pokemons = $db->query('SELECT Pokemon.id, pk_name, faiblesse, point_vie, Types.name FROM Pokemon
@@ -34,3 +34,13 @@ include 'footer.php';
 
 
 
+    <?php include 'PARTS/footer.php'; ?>
+
+
+
+
+
+
+
+
+    
