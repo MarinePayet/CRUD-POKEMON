@@ -2,19 +2,16 @@
 
 class Types
 {
-    private $nameType;
+    private $name;
 
-    public function getNameType(){
-        return $this->nameType;
+    public function getName($name){
+        return $this->name;
     }
 
-    public function FunctionName(string $nameType)
-    {
-        $this->nameType = $nameType;
+    public function setName($name){
+        $this->name = $name;
     }
-
-
-
 
 
 }
+
