@@ -44,7 +44,7 @@ class DataBase
 
     public function query($statement){
         $requete = $this->getPDO()->query($statement);
-        $datas = $requete ->fetchAll(PDO::FETCH_OBJ);
+        $datas = $requete ->fetchAll(PDO::FETCH_ASSOC);
         return $datas;
 
     }
