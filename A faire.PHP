@@ -33,3 +33,34 @@ LEFT JOIN AttaquesBasiques ON Pokemon.attaque_basique_id = AttaquesBasiques.id')
         </tbody>
     </table>
     <?php endforeach;?>
+
+
+    // CODE CHAT GPT
+
+    <?php DANS CREATE
+
+$db = new Database('PokemonCrud');
+
+// Créez une instance de la classe/model en lui passant la connexion à la base de données
+$monModel = new Types($db);
+
+// Insérez des données en appelant la méthode insererDonnees de votre classe/model
+$monModel->insererDonnees("Vol");
+
+DANS CLASS TYPES
+
+private $connexion;
+
+    public function __construct($connexion){
+        $this->connexion = $connexion;
+    }
+
+    public function insererDonnees($nameType) {
+        $requete = $this->connexion->prepare("INSERT INTO Types (name) VALUES (:nameType)");
+        $requete->bindValue(':nameType', $nameType, \PDO::PARAM_STR);
+        $requete->execute();
+    }
+
+
+
+?>

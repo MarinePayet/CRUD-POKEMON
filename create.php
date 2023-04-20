@@ -1,7 +1,11 @@
 <?php 
-require 'header.php';
-require 'footer.php';
+require 'DataBase.php';
+include 'Pokemon.php';
+include 'Types.php';
+include 'header.php';
+include 'footer.php';
 ?>
+
 <section class="container"> 
     <br><br>
     <h1> Créé un nouveau Type de pokémon</h1>
@@ -13,6 +17,11 @@ require 'footer.php';
         <input class="btn btn-success" type="submit" value="Envoyer">
 
     </form>
-    <?= var_dump($_POST['typeName']);?>
+    <?php
+
+    Types::newType();
     
+        ?>
+
 </section>
+
