@@ -50,6 +50,9 @@ class DataBase
 
     }
 
+    public function prepare($query) {
+        return $this->pdo->prepare($query);
+    }
 
 
 
