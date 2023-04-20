@@ -1,12 +1,18 @@
 <?php 
-require 'DataBase.php';
-include 'Pokemon.php';
-include 'Types.php';
-include 'header.php';
-include 'footer.php';
+require 'MODELS/DataBase.php';
+include 'MODELS/Pokemon.php';
+include 'MODELS/Types.php';
+include 'PARTS/header.php' ;
+
 ?>
 
 <section class="container"> 
+
+    <br><br>
+    <h1> Créé un nouveau pokémon</h1>
+    <br><br><br>
+    <?php include 'PARTS/form.php';?>
+    <?php Pokemon::newPokemon()?>
     <br><br>
     <h1> Créé un nouveau Type de pokémon</h1>
     <br><br><br>
@@ -22,6 +28,15 @@ include 'footer.php';
     Types::newType();
     
         ?>
+        <br><br><br>
+        <br><br><br>
 
 </section>
 
+
+
+
+
+
+
+<?php include 'PARTS/footer.php'; ?>

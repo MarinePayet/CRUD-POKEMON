@@ -1,3 +1,20 @@
+1. CREER BDD
+2. CREATE POKEMON
+3. READ POKEMON => afficher les détails au clique (sur une autre page)
+4. UPDATE POKEMON
+5. DELETE POKEMON = > cliquer sur le nom et ça le supprime ou UPDATE
+6. ajouter une photo
+7. Faiblesse et fonction sont les mêmes listes/ MAIS ATTENTION ENREIGSTREMENT DANS BDD
+<!-- A AMELIO ==> Faiblesse et types sont la meme liste. Mais on ne peut pas appeler les 2 en meme temps 
+        <div class="mb-3">
+        <label for="faiblesse" class="form-label">Faiblesse 2</label>
+        <select class="form-select" id="faiblesse" name="faiblesse" required>
+            <option> Choisi une faiblesse</option>
+            <?php optionsList('Types', $db, $pokemon['type_id']); ?>
+        </select>
+        <?php var_dump($_POST['faiblesse']);?>
+    </div>   -->
+
 <?php
 
 $pokemons = $db->query('SELECT Pokemon.id, pk_name, faiblesse, point_vie, Types.name, AttaquesSpeciales.name, AttaquesBasiques.name AS att_bas FROM Pokemon

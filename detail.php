@@ -1,8 +1,8 @@
 <?php
-require 'DataBase.php';
-include 'Pokemon.php';
-include 'header.php';
-include 'footer.php';
+require 'MODELS/DataBase.php';
+include 'MODELS/Pokemon.php';
+include 'PARTS/header.php' ;
+
 $br = "</br></br>";
 ?>
 
@@ -23,3 +23,4 @@ $br = "</br></br>";
 
 
 
+include 'PARTS/footer.php'; ?>
