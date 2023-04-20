@@ -27,7 +27,7 @@ class DataBase
             $this->pdo = $pdo;
         }
 
-
+        
         //TRY / CATCH Copié; voIR SI CA FONCTIONNE
         try {
             $pdo = new PDO('mysql:host=localhost; dbname=PokemonCrud', 'root', '');
@@ -39,6 +39,7 @@ class DataBase
                 header('error.php');
             }
         }
+
         return $pdo;
     }
 
